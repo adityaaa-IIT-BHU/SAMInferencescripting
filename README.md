@@ -1,38 +1,41 @@
-# 🧠 Fine-Tuning SAM (Segment Anything) for Medical Image Segmentation
+# 🧠 AI-Driven Liver Segmentation for Biomedical Imaging
 
-This repository contains code for **fine-tuning Meta’s Segment Anything Model (SAM)** on a **custom medical image segmentation dataset**, inspired by **MedSAM**.  
-The project was executed and tested in **Google Colab with GPU acceleration**.
+**Supervisor:** Prof. Gemma Piella Fenoy  
+**Institute:** Universitat Pompeu Fabra (UPF), Barcelona, Spain  
+**Duration:** Oct 2025 – Present
 
----
+This repository contains the complete workflow for developing a **mobile-deployable liver boundary segmentation system** for point-of-care imaging using **RGB smartphone cameras**.
 
-## 🚀 Project Overview
-
-🩺 Medical images often include complex tissue structures where classical segmentation fails.  
-🎯 This work fine-tunes **facebook/sam-vit-base** to better handle domain-specific features.
-
-The workflow includes:
-
-- Loading a medical dataset (image + mask pairs)
-- Preprocessing using 🤗 Transformers `SamProcessor`
-- Generating bounding-box prompts from ground-truth masks
-- Training the model (encoder + mask decoder)
-- Monitoring validation performance
-- Saving checkpoints to local storage + Google Drive
+The pipeline includes:
+- SAM fine-tuning for precise liver segmentation
+- Lightweight liver localization using TFLite
+- Domain adaptation using color-calibrated data
+- Ongoing YOLO-based detection with anatomical priors for robust localization
 
 ---
 
-## 📊 Results
+## 🧬 Project Motivation
 
-This work fine-tunes SAM for **liver boundary detection** from **smartphone RGB images**.
-
-| Metric | Dataset | Result |
-|--------|---------|--------|
-| **Dice = 0.90** | Unseen validation set | Accurate segmentation of clinical liver contours |
-| **Dice = 0.91** | Color-calibrated domain-adapted dataset | Improved robustness & boundary precision |
-
-🟢 Demonstrates the advantage of task-specific adaptation and domain consistency.
+Early liver disease diagnosis often relies on **resource-intensive imaging** (CT, MRI).  
+This work enables **low-cost, accessible liver boundary detection** using ** consumer-grade cameras**, improving:
+- Remote screening
+- Telehealth workflows
+- Biomedical imaging accessibility in low-resource regions
 
 ---
 
-## 📂 Repository Structure
+## 📊 Results Summary
+
+| Component | Method | Dataset | Performance | Status |
+|----------|--------|---------|-------------|-------|
+| Segmentation | Fine-tuned **SAM-Vit-Base** | Unseen validation | **0.90 Dice** | Completed |
+| Segmentation — Domain Adapted | SAM + Color-calibrated dataset | Adapted validation | **0.91 Dice** | Completed |
+| Liver Localization | Lightweight **TFLite CNN** | Smartphone RGB | **0.70 Dice** (bbox) | Completed |
+| Detection + Spatial Priors | **YOLO-based** anatomical guidance | WIP | — | In Progress |
+
+⚡ Domain adaptation significantly improved edge precision on dark-skin and low-illumination samples.
+
+---
+
+## 🖥️ System Architecture
 
