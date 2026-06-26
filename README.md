@@ -37,5 +37,19 @@ This work enables **low-cost, accessible liver boundary detection** using ** con
 
 ---
 
-## 🖥️ System Architecture
+## 📁 Repository Structure
 
+```
+notebooks/
+  finetuning.ipynb   SAM fine-tuning for liver boundary segmentation
+  inference.ipynb    Running segmentation/localization inference
+```
+
+## 🚀 Usage
+
+Open the notebooks in Jupyter or Google Colab:
+
+- **`notebooks/finetuning.ipynb`** — fine-tune SAM (ViT-Base) on the liver segmentation dataset.
+- **`notebooks/inference.ipynb`** — run inference with the fine-tuned model on new images.
+
+A GPU runtime is recommended for both fine-tuning and inference.
